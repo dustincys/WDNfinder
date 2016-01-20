@@ -1,0 +1,9 @@
+a	critical	900
+c	intermittent	450
+b	critical	900
+e	redundant	0
+d	intermittent	450
+g	redundant	0
+f	redundant	0
+i	critical	900
+h	redundant	0
