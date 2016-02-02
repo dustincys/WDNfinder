@@ -95,7 +95,6 @@ unweightedAnalysis.set_defaults(func=unweightedNetworkAnalysis)
 #===============================================================================
 unweightedEnumerate = subparsers.add_parser('unweightedMDSEnumerate', help='''Weighted network analysis''')
 unweightedEnumerate.add_argument('network', help='''network file, format: source\ttarget\weight''')
-unweightedEnumerate.add_argument('prefix', help='''prefix of output''')
 unweightedEnumerate.set_defaults(func=unweightedEnumerateMatching)
 
 
@@ -104,7 +103,6 @@ unweightedEnumerate.set_defaults(func=unweightedEnumerateMatching)
 #===============================================================================
 weightedEnumerate = subparsers.add_parser('weightedMDSEnumerate', help='''Weighted network analysis''')
 weightedEnumerate.add_argument('network', help='''network file, format: source\ttarget\weight''')
-weightedEnumerate.add_argument('prefix', help='''prefix of output''')
 weightedEnumerate.set_defaults(func=weightedEnumerateMatching)
 
 args = parser.parse_args()
