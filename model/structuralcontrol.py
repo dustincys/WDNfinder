@@ -613,16 +613,41 @@ class StructuralControl:
                     outFile.write("{0}\t{1}\t{2}\n".format(n,a['class'],0))
 
 
-    def Enum_Maximum_Matching(self, GcsP):
+    def __outPutMatching(self, GcsP):
+        """outPutMatching
+
+        :GcsP: @todo
+        :returns: @todo
+
+        """
+	for node in self.DG.nodes():
+            # Here, driver node should be the nodes in negative partite network which is not connected to matched edge
+            if "{}\t-".format(node) not in GcsP:
+                # sometimes ?
+		self.DG.node[node]['label']="free"
+                continue
+
+            matchedEdges=filter(lambda res: res[1]['label']=='matching', GcsP.edge["{}\t-".format(node)].iteritems())
+	    if len(matchedEdges)==0:
+		self.DG.node[node]['label']="driver"
+	    else:
+		self.DG.node[node]['label']="matched"
+        outPutNodes = filter(lambda res: res[1]['label']=='driver',self.DG.nodes(data=True))
+
+        #print "drivers:",[i for i, a in outPutNodes]
+        print "MDS:",sorted(list(set([i for i, a in outPutNodes])))
+        return outPutNodes
+    def Enum_Maximum_Matching(self):
         """main function of enumerate all maximum matching in G'cs(P)
 
         :G: @todo
         :returns: @todo
 
         """
+        GcsP = copy.deepcopy(self.bipartite)
         #step1. find a maximal matching M of G, and output M
         self.__matchNetwork(GcsP)
-        #self.outPutMatching(GcsP)
+        self.__outPutMatching(GcsP)
 
         G = self.__getDGM(GcsP)
         #step2: trim unnecessary edges from G by a strongly connected component decomposition algorithm with D(G,M)
