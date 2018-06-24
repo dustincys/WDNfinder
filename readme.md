@@ -11,19 +11,19 @@
 
 ### Minimum driver node set (MDS) enumeration
 
-	./WDNfinder unweightedMDSEnumerate ./data/test/sourceData.txt
+	python2.7 WDNfinder.py unweightedMDSEnumerate ./data/test/sourceData.txt
 
 ### Maximum Weight Minimum driver node set (MWMDS) enumeration
 
-	./WDNfinder weightedMDSEnumerate ./data/test/sourceData.txt
+	python2.7 WDNfinder.py weightedMDSEnumerate ./data/test/sourceData.txt
 
 ### MDS based node classification and sampling
 
-	./WDNfinder unweightedNodeAnalysis ./data/test/sourceData.txt sourceData_unweighted
+	python2.7 WDNfinder.py unweightedNodeAnalysis ./data/test/sourceData.txt sourceData_unweighted
 
 ### MWMDS based node classification and sampling
 
-	./WDNfinder weightedNodeAnalysis ./data/test/sourceData.txt sourceData_weighted
+	python2.7 WDNfinder.py weightedNodeAnalysis ./data/test/sourceData.txt sourceData_weighted
 
 ## Data
 
