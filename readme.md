@@ -3,7 +3,7 @@
 ## Requires
 
 - python2.7
-- Networkx
+- Networkx (it seems nest networkx package no longer support iter)
 
 ## Usage
 
